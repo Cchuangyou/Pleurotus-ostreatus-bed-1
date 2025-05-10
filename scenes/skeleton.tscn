@@ -1,5 +1,6 @@
-[gd_scene load_steps=40 format=3 uid="uid://djxc2q4k3dt2c"]
+[gd_scene load_steps=41 format=3 uid="uid://djxc2q4k3dt2c"]
 
+[ext_resource type="Script" uid="uid://dibu4gq684gxl" path="res://scripts/skeleton.gd" id="1_txkty"]
 [ext_resource type="Texture2D" uid="uid://cjc0hdm4ws0tx" path="res://assets/sprites/Small-8-Direction-Characters_by_AxulArt.png" id="2_ivqcw"]
 
 [sub_resource type="Animation" id="Animation_pbvs3"]
@@ -319,28 +320,28 @@ _data = {
 }
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2iffn"]
-animation = &"idle_up"
+animation = &"idle_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_67pwj"]
-animation = &"idle_up_right"
+animation = &"idle_down_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_dnc0r"]
 animation = &"idle_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_l18t7"]
-animation = &"idle_down_right"
+animation = &"idle_up_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vdbwx"]
-animation = &"idle_down"
+animation = &"idle_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wdbj4"]
-animation = &"idle_down_left"
+animation = &"idle_up_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_i84ui"]
 animation = &"idle_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ulcnj"]
-animation = &"idle_up_left"
+animation = &"idle_down_left"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_yjqjo"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_2iffn")
@@ -362,28 +363,28 @@ blend_point_7/pos = Vector2(-0.5, 0.5)
 blend_mode = 1
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_8l6in"]
-animation = &"walk_up"
+animation = &"walk_down"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bogq3"]
-animation = &"walk_up_right"
+animation = &"walk_down_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_w1nps"]
 animation = &"walk_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_05nho"]
-animation = &"walk_down_right"
+animation = &"walk_up_right"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_xbje2"]
-animation = &"walk_down"
+animation = &"walk_up"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_bheaq"]
-animation = &"walk_down_left"
+animation = &"walk_up_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_aajq6"]
 animation = &"walk_left"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_r1h1b"]
-animation = &"walk_up_left"
+animation = &"walk_down_left"
 
 [sub_resource type="AnimationNodeBlendSpace2D" id="AnimationNodeBlendSpace2D_g1s2x"]
 blend_point_0/node = SubResource("AnimationNodeAnimation_8l6in")
@@ -412,7 +413,9 @@ states/Walk/position = Vector2(490, 90)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_pbvs3"]
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="skeletion" type="CharacterBody2D" node_paths=PackedStringArray("animation_tree")]
+script = ExtResource("1_txkty")
+animation_tree = NodePath("AnimationTree")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_ivqcw")
