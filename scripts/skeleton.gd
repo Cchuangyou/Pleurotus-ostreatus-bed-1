@@ -1,7 +1,7 @@
 class_name Player
 extends CharacterBody2D
 
-@export var speed : float = 200
+@export var speed : float = 3000
 @export var animation_tree : AnimationTree
 
 var input
@@ -12,7 +12,7 @@ func _ready() -> void:
 
 func _physics_process(delta: float) -> void:
 	input = Input.get_vector("left", "right", "up", "down")
-	velocity = input * speed
+	velocity = input * speed * delta
 	move_and_slide()
 	travel_blendspace2d()
 	update_AnimationTree_Params()

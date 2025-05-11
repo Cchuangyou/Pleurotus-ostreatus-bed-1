@@ -1,18 +1,24 @@
-[gd_scene load_steps=3 format=3 uid="uid://djh3v25dykjkr"]
+[gd_scene load_steps=4 format=3 uid="uid://djh3v25dykjkr"]
 
-[ext_resource type="Texture2D" uid="uid://cpmd14hrt4c0" path="res://assets/sprites/world_tileset.png" id="2_yqjtg"]
+[ext_resource type="Texture2D" uid="uid://dnuolypyqstu4" path="res://assets/sprites/grass_tile.png" id="1_lnu2h"]
+[ext_resource type="PackedScene" uid="uid://cok803wefuf83" path="res://scenes/botanical_1_test.tscn" id="3_lbhrr"]
 [ext_resource type="PackedScene" uid="uid://djxc2q4k3dt2c" path="res://scenes/skeleton.tscn" id="5_iywne"]
 
 [node name="Game" type="Node2D"]
 
-[node name="WorldTileset" type="Sprite2D" parent="."]
-position = Vector2(8, 28)
-texture = ExtResource("2_yqjtg")
+[node name="GrassTile" type="Sprite2D" parent="."]
+position = Vector2(26, 26)
+scale = Vector2(1.54688, 1.48438)
+texture = ExtResource("1_lnu2h")
+
+[node name="botanical_1_test" parent="." instance=ExtResource("3_lbhrr")]
 
 [node name="skeletion" parent="." instance=ExtResource("5_iywne")]
+position = Vector2(27, -3)
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="skeletion"]
 remote_path = NodePath("../../Camera2D")
 
 [node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(27, -3)
 zoom = Vector2(3, 3)
